@@ -36,7 +36,30 @@ public class ClientMain extends JFrame implements Runnable, ActionListener, Mous
     int myAvata;
     String myRoom;
 
-    int infoRow=-1;     //사용자 정보 보기기
+    int infoRow=-1;     //사용자 정보 보기
+
+
+    // 생성자
+    public ClientMain(){
+        this.setLayout(cardLayout);
+        this.setTitle("P1JavaGame 만든 사람: hojinchu");
+        this.add("LOGIN",login);
+        setSize(1024,768);
+        setVisible(true);
+
+        Dimension screenD=Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension superFrameD=super.getSize();
+
+        int xPos=(int)(screenD.getWidth()/2 - superFrameD.getWidth()/2);
+        int yPos= (int)(screenD.getHeight()/2 - superFrameD.getHeight()/2);
+
+        this.setLocation(xPos,yPos);
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        this.setResizable(false);
+
+
+    }
+
 
 
 
