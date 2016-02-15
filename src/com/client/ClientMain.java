@@ -20,7 +20,7 @@ public class ClientMain extends JFrame implements Runnable, ActionListener, Mous
     Register register=new Register();
     WaitRoom waitRoom=new WaitRoom();
 
-    // 소켓 연결을 위한 변수 선언
+    // 소켓 연결을 위한 변수 선언--인스턴스 멤버
     Socket socket;
     BufferedReader bufferedReader;      //데이터 읽어들임
     OutputStream outputStream;          //데이터 출력.
