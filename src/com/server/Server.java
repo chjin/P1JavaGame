@@ -71,7 +71,7 @@ public class Server implements Runnable{
 
     //클라이언트와 서버간 통신시 사용되는 객체
     class GClient extends Thread{
-        String id,name;
+        String id,name, pos;
         //통신시엔 소켓 필요.
         Socket socket;
         //클라이언트 데이터 읽어들이고 스트림 객체 필요
@@ -111,16 +111,19 @@ public class Server implements Runnable{
                     switch (protocol){
                         //최초 로그인 요청.
                         case Protocol.LOGIN: {
+                            //클라이언트가 입력한 데이터를 받음.
                             id=stringTokenizer.nextToken();
                             name=stringTokenizer.nextToken();
+                            pos="로그인";
 
-                            messageAll(Protocol.LOGIN +"||"+ id +"||" +name);
+                            messageAll(Protocol.LOGIN +"||"+ id +"||" +name+ "||" +pos);
 
-                            //요청한 헤당 클라이언트 저장
+                            //요청한 헤당 클라이언트를 Vector에 저장
                             vectorGClient.addElement(this);
 
                             //messageTo(Protocol.WAITROOMLOGIN +"||"+ id);
-                            //로그인을 하면 ==> 대기실창으로 변경함.
+                            //로그인 창에서 대기실창으로 변경시에 사용.
+
 
                             //저장된 클라이언트의 모든 정보를 보냄
                             for(GClient gClient:vectorGClient){
